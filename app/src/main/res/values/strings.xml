@@ -7,4 +7,12 @@
             <item>Female</item>
         </string-array>
 
+    <string-array name="category_array">
+        <item>Select Pet Category</item>
+        <item>Cat</item>
+        <item>Dog</item>
+        <item>Bird</item>
+        <item>Rabbit</item>
+    </string-array>
+
 </resources>
