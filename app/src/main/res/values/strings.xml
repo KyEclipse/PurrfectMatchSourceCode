@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Purrfect Match</string>
+
+        <string-array name="gender_array">
+            <item>Select Pet Gender</item>
+            <item>Male</item>
+            <item>Female</item>
+        </string-array>
+
 </resources>
