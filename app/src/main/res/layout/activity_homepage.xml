@@ -6,90 +6,207 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/profilebkg"
-    tools:context=".ProfileActivity">
+    tools:context=".HomepageActivity">
 
-    <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:id="@+id/profileImg"
-        android:layout_marginTop="30dp"
-        android:src="@drawable/akwhitelogo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
 
-    <TextView
+    <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/titleName"
-        android:layout_marginTop="10dp"
-        android:text="Name"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@id/profileImg"
-        app:layout_constraintStart_toStartOf="@id/profileImg"
-        app:layout_constraintTop_toBottomOf="@id/profileImg"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/titleUsername"
-        android:text="username"
-        android:textColor="@color/white"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@id/titleName"
-        app:layout_constraintStart_toStartOf="@id/titleName"
-        app:layout_constraintTop_toBottomOf="@id/titleName"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/linearLayout"
-        android:orientation="vertical"
-        android:padding="10dp"
-        android:background="@drawable/white_background"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginTop="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/titleUsername">
+        tools:ignore="MissingConstraints">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="24dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="Pet Categories"
+                android:textColor="@color/grey"
+                android:textSize="28sp"
+                android:textStyle="bold" />
+
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/dogCategoryBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:backgroundTint="@color/Blue1"
+                    android:text="Dog" />
+
+                <Button
+                    android:id="@+id/catCategoryBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:backgroundTint="@color/Blue1"
+                    android:text="Cat" />
+
+                <Button
+                    android:id="@+id/rabbitCategoryBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:backgroundTint="@color/Blue1"
+                    android:text="Rabbit" />
+
+                <Button
+                    android:id="@+id/birdCategoryBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/Blue1"
+                    android:text="Bird" />
+
+            </LinearLayout>
+            <SearchView
+                android:id="@+id/searchByName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/grey_border"
+                android:queryHint="Search by name"/>
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="462dp"
+                android:drawable="@drawable/grey_border1"
+                android:src="@drawable/dog1" />
+
+
+            <!-- TextView for the description -->
+            <TextView
+                android:id="@+id/description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name: Toby
+                              Breed: Corgi
+                              Gender: Male
+                           Category: Dog
+                              Age: 5 months"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:id="@+id/StoryTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Story:"
+                android:textSize="16sp"
+                android:layout_marginTop="8dp"/>
+
+            <TextView
+                android:id="@+id/petStory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Toby is a fun and playful puppy, though unfortunately we are moving country this december, we want to find him a loving home! "
+                android:textSize="16sp"
+                android:layout_marginTop="8dp"/>
+
+            <Button
+                android:id="@+id/adoptButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/Blue1"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:text="Adopt" />
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!--<ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/profileImg"
+            android:layout_marginTop="30dp"
+            android:src="@drawable/akwhitelogo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/titleName"
+            android:layout_marginTop="10dp"
+            android:text="Name"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@id/profileImg"
+            app:layout_constraintStart_toStartOf="@id/profileImg"
+            app:layout_constraintTop_toBottomOf="@id/profileImg"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/titleUsername"
+            android:text="username"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="@id/titleName"
+            app:layout_constraintStart_toStartOf="@id/titleName"
+            app:layout_constraintTop_toBottomOf="@id/titleName"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:id="@+id/linearLayout"
+            android:orientation="vertical"
+            android:padding="10dp"
+            android:background="@drawable/white_background"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginTop="30dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/titleUsername">
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:elevation="5dp"
-                android:padding="8dp"
-                android:orientation="vertical">
+                android:orientation="horizontal">
 
-                <TextView
-                    android:layout_width="80dp"
-                    android:layout_height="60dp"
-                    android:id="@+id/postsNumber"
-                    android:text="27"
-                    android:gravity="center"
-                    android:textAlignment="center"
-                    android:textColor="@color/lavender"
-                    android:textSize="26sp"
-                    android:textStyle="bold"/>
-
-                <TextView
-                    android:layout_width="match_parent"
+                <LinearLayout
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/posts"
-                    android:text="Posts"
-                    android:textAlignment="center"
-                    android:textColor="@color/lavender"
-                    android:textSize="16sp"/>
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:elevation="5dp"
+                    android:padding="8dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="80dp"
+                        android:layout_height="60dp"
+                        android:id="@+id/postsNumber"
+                        android:text="27"
+                        android:gravity="center"
+                        android:textAlignment="center"
+                        android:textColor="@color/lavender"
+                        android:textSize="26sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/posts"
+                        android:text="Posts"
+                        android:textAlignment="center"
+                        android:textColor="@color/lavender"
+                        android:textSize="16sp"/>
 
             </LinearLayout>
 
@@ -312,4 +429,4 @@
         app:layout_constraintStart_toStartOf="@id/linearLayout"
         app:layout_constraintTop_toBottomOf="@id/linearLayout"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout> -->

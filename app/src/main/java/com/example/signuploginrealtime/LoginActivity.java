@@ -17,8 +17,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.Objects;
-
 public class LoginActivity extends AppCompatActivity {
 
     EditText loginEmail, loginPassword;
@@ -102,7 +100,7 @@ public class LoginActivity extends AppCompatActivity {
                         String emailFromDB = snapshot.child(userEmail).child("email").getValue(String.class);
                         String usernameFromDB = snapshot.child(userEmail).child("username").getValue(String.class);
 
-                        Intent intent = new Intent(LoginActivity.this, RegisterPetActivity.class);
+                        Intent intent = new Intent(LoginActivity.this, HomepageActivity.class);
 
                         intent.putExtra("firstname", firstnameFromDB);
                         intent.putExtra("lastname", lastnameFromDB);

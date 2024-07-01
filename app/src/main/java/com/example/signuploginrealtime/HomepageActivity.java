@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -16,7 +17,65 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
-public class ProfileActivity extends AppCompatActivity {
+import android.os.Bundle;
+import android.widget.SearchView;
+import android.widget.TextView;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+
+public class HomepageActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_homepage);
+
+        ImageView imageView = findViewById(R.id.imageView);
+        TextView descriptionTextView = findViewById(R.id.description);
+        SearchView searchView = findViewById(R.id.searchByName);
+
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("images").child("dog1"); // Replace "image1" with your image key
+        int id = searchView.getContext().getResources().getIdentifier("android:id/search_src_text", null, null);
+        TextView textView = searchView.findViewById(id);
+        textView.setHintTextColor(ContextCompat.getColor(this, R.color.grey));
+        textView.setTextColor(ContextCompat.getColor(this, android.R.color.black));
+
+
+// Retrieve data from Firebase
+        databaseReference.get().addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                DataSnapshot dataSnapshot = task.getResult();
+                if (dataSnapshot.exists()) {
+                    String description = dataSnapshot.child("description").getValue(String.class);
+                    descriptionTextView.setText(description);
+                }
+            } else {
+// Handle error
+                Exception exception = task.getException();
+                if (exception != null) {
+                    // Handle error
+                }
+            }
+        });
+
+        // You can load image from Firebase Storage if needed
+        // StorageReference storageRef = FirebaseStorage.getInstance().getReference().child("images/image1.jpg");
+        // Glide.with(this).load(storageRef).into(imageView);
+    }
+}
+
+
+
+//--------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+/*
+
+public class HomepageActivity extends AppCompatActivity {
 
     TextView profileName, profileEmail, profileUsername, profilePassword;
     TextView titleName, titleUsername;
@@ -25,7 +84,7 @@ public class ProfileActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile);
+        setContentView(R.layout.activity_homepage);
 
         profileName = findViewById(R.id.profileName);
         profileEmail = findViewById(R.id.profileEmail);
@@ -78,7 +137,7 @@ public class ProfileActivity extends AppCompatActivity {
                     String usernameFromDB = snapshot.child(userUsername).child("username").getValue(String.class);
                     String passwordFromDB = snapshot.child(userUsername).child("password").getValue(String.class);
 
-                    Intent intent = new Intent(ProfileActivity.this, EditProfileActivity.class);
+                    Intent intent = new Intent(HomepageActivity.this, EditProfileActivity.class);
 
                     intent.putExtra("name", nameFromDB);
                     intent.putExtra("email", emailFromDB);
@@ -96,3 +155,6 @@ public class ProfileActivity extends AppCompatActivity {
         });
     }
 }
+
+
+ */
