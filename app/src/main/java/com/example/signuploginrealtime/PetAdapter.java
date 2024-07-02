@@ -36,6 +36,9 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.PetViewHolder> {
         holder.petName.setText(pet.getPetName());
         holder.petBreed.setText(pet.getPetBreed());
         holder.petAge.setText(pet.getPetAge());
+        holder.petGender.setText(pet.getPetGender());
+        holder.petOwnerPhoneNumber.setText(pet.getPetOwnerPhoneNumber());
+        holder.petCategory.setText(pet.getPetCategory());
         holder.petStory.setText(pet.getPetStory());
 
         Glide.with(context)
@@ -49,7 +52,7 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.PetViewHolder> {
     }
 
     public static class PetViewHolder extends RecyclerView.ViewHolder {
-        TextView petName, petBreed, petAge, petStory;
+        TextView petName, petBreed, petAge, petStory, petGender, petOwnerPhoneNumber, petCategory;
         ImageView petImage;
 
         public PetViewHolder(@NonNull View itemView) {
@@ -57,6 +60,9 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.PetViewHolder> {
             petName = itemView.findViewById(R.id.petName);
             petBreed = itemView.findViewById(R.id.petBreed);
             petAge = itemView.findViewById(R.id.petAge);
+            petGender = itemView.findViewById(R.id.petGender);
+            petOwnerPhoneNumber = itemView.findViewById(R.id.petOwnerPhoneNumber);
+            petCategory = itemView.findViewById(R.id.petCategory);
             petStory = itemView.findViewById(R.id.petStory);
             petImage = itemView.findViewById(R.id.petImage);
         }

@@ -1,7 +1,10 @@
 package com.example.signuploginrealtime;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -33,6 +36,8 @@ public class HomepageActivity extends AppCompatActivity {
         petAdapter = new PetAdapter(this, petList);
         recyclerView.setAdapter(petAdapter);
 
+        // Setting up RecyclerView and Firebase data retrieval
+
         FirebaseDatabase.getInstance().getReference("Registered Pet")
                 .addValueEventListener(new ValueEventListener() {
                     @Override
@@ -57,5 +62,15 @@ public class HomepageActivity extends AppCompatActivity {
                         Log.e("HomepageActivity", "onCancelled", databaseError.toException());
                     }
                 });
+
+        // Handle click on RegisterPetRedirectText to navigate to RegisterPetActivity
+        TextView registerPetRedirectText = findViewById(R.id.RegisterPetRedirectText);
+        registerPetRedirectText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomepageActivity.this, RegisterPetActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }
