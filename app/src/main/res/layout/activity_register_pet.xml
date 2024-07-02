@@ -10,9 +10,9 @@
     android:gravity="center"
     tools:context=".RegisterPetActivity"> <!-- refer to java class -->
 
-<ScrollView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
 
 
@@ -97,6 +97,16 @@
                 android:textColor="@color/black" />
 
             <EditText
+                android:id="@+id/register_phoneNumber"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/grey_border1"
+                android:hint="Owner Phone Number"
+                android:paddingLeft="25dp"
+                android:textColor="@color/black" />
+
+            <EditText
                 android:id="@+id/register_petStory"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
@@ -148,6 +158,6 @@
 
 
         </LinearLayout>
-</ScrollView>
+    </ScrollView>
 
 </LinearLayout>
